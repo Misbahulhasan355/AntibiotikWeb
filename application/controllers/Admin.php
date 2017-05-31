@@ -71,11 +71,60 @@ class Admin extends CI_Controller{
 		$this->doktermodel->update_data($where,$data,'dokterku');
 		redirect('Admin/dokterku');
 	}
+	//-- OBAT --//
 	function obat(){
+		$data['lemari'] = $this->obatmodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
-		$this->load->view('obat.php');
+		$this->load->view('obat.php' , $data);
 		$this->load->view('footeradmin.php');
 	}
+	function tambahobat(){
+		$data['page'] = 'obat.php';
+		$this->load->view('headeradmin.php');
+		$this->load->view('obat.php',$data);
+		$this->load->view('footeradmin.php');
+	}
+	function tambah_aksiobat(){
+		$nm_obat = $this->input->post('nm_obat');
+		$kegunaan = $this->input->post('kegunaan');
+		$gambar_obat = $this->input->post('gambar_obat');
+		$data = array(
+			'nm_obat' => $nm_obat,
+			'kegunaan' => $kegunaan,
+			'gambar_obat' => $gambar_obat
+			);
+		$this->obatmodel->input_data($data , 'lemari');
+		redirect('Admin/obat');
+	}
+	function hapus_obat($id_obat){
+		$this->load->model('obatmodel');
+		$this->obatmodel->hapus_data($id_obat);
+		redirect('Admin/obat');
+	}
+	function edit_obat($id_obat){
+	$where = array('id_obat' => $id_obat);
+	$data['lemari'] = $this->obatmodel->edit_data($where,'lemari')->result();
+	$this->load->view('headeradmin.php');
+	$this->load->view('editobat.php',$data);
+	$this->load->view('footeradmin.php');
+	}
+	function update_obat(){
+		$id_obat = $this->input->post('id_obat');
+		$nm_obat = $this->input->post('nm_obat');
+		$kegunaan = $this->input->post('kegunaan');
+		$gambar_obat = $this->input->post('gambar_obat');
+		$data = array(
+			'nm_obat' => $nm_obat,
+			'kegunaan' => $kegunaan,
+			'gambar_obat' => $gambar_obat
+			);
+		$where = array(
+		'id_obat' => $id_obat
+		);
+		$this->obatmodel->update_data($where,$data,'lemari');
+		redirect('Admin/obat');
+	}
+
 	//-- TIPS --//
 	function tips(){
 		$data['tips'] = $this->tipsmodel->tampil_data()->result();
