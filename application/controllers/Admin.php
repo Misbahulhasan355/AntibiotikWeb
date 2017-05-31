@@ -76,16 +76,68 @@ class Admin extends CI_Controller{
 		$this->load->view('obat.php');
 		$this->load->view('footeradmin.php');
 	}
+	//-- TIPS --//
 	function tips(){
+		$data['tips'] = $this->tipsmodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
-		$this->load->view('tips.php');
+		$this->load->view('tips.php' ,$data);
 		$this->load->view('footeradmin.php');
 	}
-	function darurat(){
+	function tambahtips(){
+		$data['page'] = 'tips.php';
 		$this->load->view('headeradmin.php');
-		$this->load->view('darurat.php');
+		$this->load->view('tips.php',$data);
 		$this->load->view('footeradmin.php');
 	}
+	function tambah_aksitips(){
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$waktu = $this->input->post('waktu');
+		$link = $this->input->post('link');
+		$gambar = $this->input->post('gambar');
+		$data = array(
+			'judul' => $judul,
+			'deskripsi' => $deskripsi,
+			'waktu' => $waktu,
+			'link' => $link,
+			'gambar' => $gambar
+			);
+		$this->tipsmodel->input_data($data , 'tips');
+		redirect('Admin/tips');
+	}
+	function hapus_tips($id_tips){
+		$this->load->model('tipsmodel');
+		$this->tipsmodel->hapus_data($id_tips);
+		redirect('Admin/tips');
+	}
+	function edit_tips($id_tips){
+	$where = array('id_tips' => $id_tips);
+	$data['tips'] = $this->tipsmodel->edit_data($where,'tips')->result();
+	$this->load->view('headeradmin.php');
+	$this->load->view('edittips.php',$data);
+	$this->load->view('footeradmin.php');
+	}
+	function update_tips(){
+		$id_tips = $this->input->post('id_tips');
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$waktu = $this->input->post('waktu');
+		$link = $this->input->post('link');
+		$gambar = $this->input->post('gambar');
+		$data = array(
+			'judul' => $judul,
+			'deskripsi' => $deskripsi,
+			'waktu' => $waktu,
+			'link' => $link,
+			'gambar' => $gambar
+			);
+		$where = array(
+		'id_tips' => $id_tips
+		);
+		$this->tipsmodel->update_data($where,$data,'tips');
+		redirect('Admin/tips');
+	}
+	
 
 //-- DARURAT --//
 	function darurat(){
