@@ -30,7 +30,7 @@
                 <div class="form-group">
                   <label for="focusedinput" class="col-sm-2 control-label">Alamat</label>
                   <div class="col-sm-8">
-                     <textarea name="almt_dok" class="col-sm-12" cols="40" rows="5"><?php echo $u->almt_dok ?>"</textarea>
+                     <textarea name="almt_dok" class="col-sm-12" cols="40" rows="5"><?php echo $u->almt_dok ?></textarea>
                   </div>                  
                 </div>
                 <div class="form-group">

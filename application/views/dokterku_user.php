@@ -74,7 +74,7 @@
                   <td><?php echo $u->telp_dok ?></td>
                   <td><?php echo $u->almt_dok ?></td>
                   <td><?php echo $u->gambar_dok ?></td>
-                  <td><?php echo anchor('Admin/hapus_dokterku/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'); ?>&nbsp;<?php echo anchor('Admin/edit_dokterku/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-pencil"></i></button>'); ?>
+                  <td><?php echo anchor('User/hapus_dokterku_user/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'); ?>&nbsp;<button type="button" class="btn btn-danger"><i class="fa fa-eye"></i></button>&nbsp;<?php echo anchor('User/edit_dokterku_user/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-pencil"></i></button>'); ?>
   &nbsp;</td>
                 </tr>
                 <?php } ?>

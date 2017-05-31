@@ -14,6 +14,8 @@
 <script src="<?php echo base_url('gudang/admin/js/jquery.min.js'); ?>"></script>
 <!--webfonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<!--link text editor-->
+<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
 <!---//webfonts-->  
 <!-- Nav CSS -->
 <link href="<?php echo base_url('gudang/admin/css/custom.css'); ?>" rel="stylesheet">
@@ -63,7 +65,7 @@ setInterval(GetClock,1000);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome admin</a>
+                <a class="navbar-brand" href="#">Welcome, <?php echo $username;?></a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -73,37 +75,33 @@ setInterval(GetClock,1000);
 						<li class="dropdown-menu-header text-center">
 							<strong>Account</strong>
 						<li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
-						<li class="m_2"><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>	
+						<li class="m_2"><a href="<?php echo base_url("login/keluar");?>"><i class="fa fa-power-off"></i> Logout</a></li>	
 	        		</ul>
 	      		</li>
 			</ul>
-			<form class="navbar-form navbar-right">
-              <input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
-            </form>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php echo base_url('index.php/Admin/index');?>"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                            <a href="<?php echo base_url('Admin/index');?>"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('index.php/Admin/dokterku');?>"><i class="fa fa-book nav_icon"></i>tips</a>
+                                    <a href="<?php echo base_url('Admin/tips');?>"><i class="fa fa-book nav_icon"></i>tips</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('index.php/Admin/obat');?>"><i class="fa fa-archive nav_icon"></i>obat</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('index.php/Admin/dokterku');?>"><i class="fa fa-user-md nav_icon"></i>dokterku</a>
+                                    <a href="<?php echo base_url('Admin/dokterku');?>"><i class="fa fa-user-md nav_icon"></i>dokterku</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('index.php/Admin/quote');?>"><i class="fa fa-comments-o nav_icon"></i>quote</a>
+                                    <a href="<?php echo base_url('Admin/quote');?>"><i class="fa fa-comments-o nav_icon"></i>quote</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('index.php/Admin/darurat');?>"><i class="fa fa-ambulance nav_icon"></i>Darurat</a>
+                                    <a href="<?php echo base_url('Admin/darurat');?>"><i class="fa fa-ambulance nav_icon"></i>Darurat</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -112,20 +110,17 @@ setInterval(GetClock,1000);
                             <a href="#"><i class="fa fa-table nav_icon"></i>Hasil data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="basic_tables.html"><i class="fa fa-table nav_icon"></i>Tabel</a>
-                                </li>
-                                <li>
-                                    <a href="basic_tables.html"><i class="fa fa-file nav_icon"></i>Json</a>
+                                    <a href="<?php echo base_url('Admin/tabel'); ?>"><i class="fa fa-table nav_icon"></i>Tabel</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user nav_icon"></i>User</a>
+                            <a href="<?php echo base_url('Admin/pengguna'); ?>"><i class="fa fa-user nav_icon"></i>User</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-power-off nav_icon"></i>sign out</a>
+                            <a href="<?php echo base_url("login/keluar");?>"><i class="fa fa-power-off nav_icon"></i>sign out</a>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>

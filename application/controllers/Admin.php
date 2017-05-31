@@ -5,12 +5,32 @@ class Admin extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('doktermodel');
+		$this->load->model('daruratmodel');
+		$this->load->model('obatmodel');
+		$this->load->model('tipsmodel');
+		$this->load->model('quotemodel');
+		$this->load->model('akunmodel');
 		$this->load->helper('url');
 	}
 	function index(){
 		$data['username'] = $this->session->userdata('username');
 		$this->load->view('homeadmin.php', $data);
 	}
+
+	//-- Akun --//
+	function pengguna(){
+		$data['akun'] = $this->akunmodel->tampil_data()->result();
+		$this->load->view('headeradmin.php');
+		$this->load->view('akunpage.php', $data);
+		$this->load->view('footeradmin.php');
+	}
+	function hapus_akun($id_akun){
+		$this->load->model('akunmodel');
+		$this->akunmodel->hapus_data($id_akun);
+		redirect('Admin/pengguna');
+	}
+
+								//-- DOKTERKU --//
 	function dokterku(){
 		$data['dokterku'] = $this->doktermodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
@@ -50,7 +70,7 @@ class Admin extends CI_Controller{
 	$this->load->view('headeradmin.php');
 	$this->load->view('editdokter.php',$data);
 	$this->load->view('footeradmin.php');
-}
+	}
 	function update_dokterku(){
 		$id_dok = $this->input->post('id_dok');
 		$nm_dok = $this->input->post('nm_dok');
@@ -71,7 +91,8 @@ class Admin extends CI_Controller{
 		$this->doktermodel->update_data($where,$data,'dokterku');
 		redirect('Admin/dokterku');
 	}
-	//-- OBAT --//
+
+				//-- OBAT --//
 	function obat(){
 		$data['lemari'] = $this->obatmodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
@@ -125,7 +146,7 @@ class Admin extends CI_Controller{
 		redirect('Admin/obat');
 	}
 
-	//-- TIPS --//
+				//-- TIPS --//
 	function tips(){
 		$data['tips'] = $this->tipsmodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
@@ -186,9 +207,8 @@ class Admin extends CI_Controller{
 		$this->tipsmodel->update_data($where,$data,'tips');
 		redirect('Admin/tips');
 	}
-	
 
-//-- DARURAT --//
+							//-- DARURAT --//
 	function darurat(){
 		$data['darurat'] = $this->daruratmodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
@@ -245,7 +265,8 @@ class Admin extends CI_Controller{
 		$this->daruratmodel->update_data($where,$data,'darurat');
 		redirect('Admin/darurat');
 	}
-	//--- QUOTE --//
+
+					//--- QUOTE --//
 	function quote(){
 		$data['quote'] = $this->quotemodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
@@ -289,6 +310,58 @@ class Admin extends CI_Controller{
 		);
 		$this->quotemodel->update_data($where,$data,'quote');
 		redirect('Admin/quote');
+	}
+
+		//-- Hasil Tabel dan Json -->
+	function tabel(){
+		$data['dokterku'] = $this->doktermodel->tampil_data()->result();
+		$data['quote'] = $this->quotemodel->tampil_data()->result();
+		$data['tips'] = $this->tipsmodel->tampil_data()->result();
+		$data['lemari'] = $this->obatmodel->tampil_data()->result();
+		$data['darurat'] = $this->daruratmodel->tampil_data()->result();
+		$this->load->view('headeradmin.php');
+		$this->load->view('hasiltabel.php', $data);
+		$this->load->view('footeradmin.php');
+	}
+
+			//-- Data Json dokterku --//
+	function json_dokterku(){
+		$sql = $this->db->query("
+			select * from dokterku
+			")->result();
+		echo json_encode($sql);
+	}
+
+			//-- Data Json tips --//
+	function json_tips(){
+		$sql = $this->db->query("
+			select * from tips
+			")->result();
+		echo json_encode($sql);
+	}
+
+			//-- Data Json quote --//
+	function json_quote(){
+		$sql = $this->db->query("
+			select * from quote
+			")->result();
+		echo json_encode($sql);
+	}
+
+			//-- Data Json Obat --//
+	function json_obat(){
+		$sql = $this->db->query("
+			select * from lemari
+			")->result();
+		echo json_encode($sql);
+	}
+
+			//-- Data Json darurat --//
+	function json_darurat(){
+		$sql = $this->db->query("
+			select * from darurat
+			")->result();
+		echo json_encode($sql);
 	}
 }
 ?>
