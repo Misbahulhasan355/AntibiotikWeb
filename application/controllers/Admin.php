@@ -86,10 +86,50 @@ class Admin extends CI_Controller{
 		$this->load->view('darurat.php');
 		$this->load->view('footeradmin.php');
 	}
+	//--- QUOTE --//
 	function quote(){
+		$data['quote'] = $this->quotemodel->tampil_data()->result();
 		$this->load->view('headeradmin.php');
-		$this->load->view('quote.php');
+		$this->load->view('quote.php', $data);
 		$this->load->view('footeradmin.php');
+	}
+	function tambahquote(){
+		$data['page'] = 'quote.php';
+		$this->load->view('headeradmin.php');
+		$this->load->view('quote.php',$data);
+		$this->load->view('footeradmin.php');
+	}
+	function tambah_aksiquote(){
+		$nm_quote = $this->input->post('nm_quote');
+		$data = array(
+			'nm_quote' => $nm_quote
+			);
+		$this->quotemodel->input_data($data , 'quote');
+		redirect('Admin/quote');
+	}
+	function hapus_quote($id_quote){
+		$this->load->model('quotemodel');
+		$this->quotemodel->hapus_data($id_quote);
+		redirect('Admin/quote');
+	}
+	function edit_quote($id_quote){
+	$where = array('id_quote' => $id_quote);
+	$data['quote'] = $this->tipsmodel->edit_data($where,'quote')->result();
+	$this->load->view('headeradmin.php');
+	$this->load->view('editquote.php',$data);
+	$this->load->view('footeradmin.php');
+	}
+	function update_quote(){
+		$id_quote = $this->input->post('id_quote');
+		$nm_quote = $this->input->post('nm_quote');
+		$data = array(
+			'nm_quote' => $nm_quote
+			);
+		$where = array(
+		'id_quote' => $id_quote
+		);
+		$this->quotemodel->update_data($where,$data,'quote');
+		redirect('Admin/quote');
 	}
 }
 ?>
