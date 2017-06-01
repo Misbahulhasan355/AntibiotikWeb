@@ -3,7 +3,7 @@
 	   <div class="content_bottom">
      <div class="col-md-12 span_3">
           <div class="bs-example1" data-example-id="contextual-table">
-           <form class="form-horizontal" action="<?php echo base_url(). 'Admin/tambah_aksidokterku'; ?>" method="post">
+           <form class="form-horizontal" action="<?php echo base_url(). 'User/tambah_aksidokterku'; ?>" method="post">
               <div class="form-group">
                   <label for="focusedinput" class="col-sm-12 control-label"><center><h1>Dokterku</h1></center></label>                
                 </div>
@@ -41,8 +41,6 @@
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
         <button class="btn-success btn" value="tambahdokterku">Submit</button>
-        <button class="btn-inverse btn">Cancel</button>
-        <button class="btn-inverse btn">Reset</button>
       </div>
    </div>
     </form></div>
@@ -74,7 +72,7 @@
                   <td><?php echo $u->telp_dok ?></td>
                   <td><?php echo $u->almt_dok ?></td>
                   <td><?php echo $u->gambar_dok ?></td>
-                  <td><?php echo anchor('User/hapus_dokterku_user/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'); ?>&nbsp;<button type="button" class="btn btn-danger"><i class="fa fa-eye"></i></button>&nbsp;<?php echo anchor('User/edit_dokterku_user/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-pencil"></i></button>'); ?>
+                  <td><?php echo anchor('User/edit_dokterku_user/'.$u->id_dok,'<button type="button" class="btn btn-danger"><i class="fa fa-pencil"></i></button>'); ?>
   &nbsp;</td>
                 </tr>
                 <?php } ?>

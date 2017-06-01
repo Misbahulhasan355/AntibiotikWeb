@@ -37,8 +37,6 @@
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
         <button class="btn-success btn" value="tambahdarurat">Submit</button>
-        <button class="btn-inverse btn">Cancel</button>
-        <button class="btn-inverse btn">Reset</button>
       </div>
    </div>
     </form></div>

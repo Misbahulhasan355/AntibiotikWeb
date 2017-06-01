@@ -65,7 +65,7 @@ setInterval(GetClock,1000);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Welcome, <?php echo $username;?></a>
+                <a class="navbar-brand" href="<?php echo base_url('Admin/index');?>">Welcome, <?php echo $username;?></a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -74,7 +74,6 @@ setInterval(GetClock,1000);
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
 							<strong>Account</strong>
-						<li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
 						<li class="m_2"><a href="<?php echo base_url("login/keluar");?>"><i class="fa fa-power-off"></i> Logout</a></li>	
 	        		</ul>
 	      		</li>

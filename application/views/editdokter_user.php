@@ -4,7 +4,7 @@
      <div class="col-md-12 span_3">
           <div class="bs-example1" data-example-id="contextual-table">
             <?php foreach($dokterku as $u){ ?>
-           <form class="form-horizontal" action="<?php echo base_url(). 'Admin/update_dokterku'; ?>" method="post">
+           <form class="form-horizontal" action="<?php echo base_url(). 'User/update_dokterku_user'; ?>" method="post">
               <div class="form-group">
                   <label for="focusedinput" class="col-sm-12 control-label"><center><h1>Dokterku</h1></center></label>                
                 </div>
@@ -30,7 +30,7 @@
                 <div class="form-group">
                   <label for="focusedinput" class="col-sm-2 control-label">Alamat</label>
                   <div class="col-sm-8">
-                     <textarea name="almt_dok" class="col-sm-12" cols="40" rows="5"><?php echo $u->almt_dok ?>"</textarea>
+                     <textarea name="almt_dok" class="col-sm-12" cols="40" rows="5"><?php echo $u->almt_dok ?></textarea>
                   </div>                  
                 </div>
                 <div class="form-group">
@@ -43,8 +43,7 @@
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
         <button class="btn-success btn" value="update_dokterku">Submit</button>
-        <button class="btn-inverse btn">Cancel</button>
-        <button class="btn-inverse btn">Reset</button>
+        <a href="<?php echo base_url('User/dokterku_user');?>"><button class="btn-inverse btn">Cancel</button></a>
       </div>
    </div>
     </form></div>

@@ -4,7 +4,7 @@
      <div class="col-md-12 span_3">
           <div class="bs-example1" data-example-id="contextual-table">
             <?php foreach($lemari as $u){ ?>
-           <form class="form-horizontal" action="<?php echo base_url(). 'Admin/update_obat'; ?>" method="post">
+           <form class="form-horizontal" action="<?php echo base_url(). 'User/update_obat'; ?>" method="post">
               <div class="form-group">
                   <label for="focusedinput" class="col-sm-12 control-label"><center><h1>Obat</h1></center></label>                
                 </div>
@@ -30,7 +30,8 @@
       <form>
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
-        <button class="btn-success btn" value="update_obat">Submit</button><a href="<?php echo base_url('Admin/obat');?>"><button class="btn-inverse btn">Cancel</button></a>
+        <button class="btn-success btn" value="update_obat">Submit</button>
+         <a href="<?php echo base_url('User/obat_user');?>"><button class="btn-inverse btn">Cancel</button></a>
       </div>
    </div>
     </form></div>

@@ -43,8 +43,7 @@
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
         <button class="btn-success btn" value="update_dokterku">Submit</button>
-        <button class="btn-inverse btn">Cancel</button>
-        <button class="btn-inverse btn">Reset</button>
+        <a href="<?php echo base_url('Admin/dokterku');?>"><button class="btn-inverse btn">Cancel</button></a>
       </div>
    </div>
     </form></div>

@@ -14,10 +14,11 @@
               </thead>
               <tbody>
                 <?php
+                $no = 1;
                 foreach ($akun as $u){
                   ?>
                 <tr>
-                  <th scope="row"><?php echo $u->id_akun ?></th>
+                  <th scope="row"><?php echo $no++ ?></th>
                   <td><?php echo $u->username ?></td>
                   <td><?php echo $u->email ?></td>
                  <td><?php echo anchor('Admin/hapus_akun/'.$u->id_akun,'<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>'); ?>&nbsp;</td>

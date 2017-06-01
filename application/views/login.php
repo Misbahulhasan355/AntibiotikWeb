@@ -32,8 +32,7 @@
 		<div class="submit">
       <input type="submit" value="login"></div>
 		<ul class="new">
-			<li class="new_left"><p><a href="#">Forgot Password ?</a></p></li>
-			<li class="new_right"><p class="sign">New here ?<a href="register.html"> Sign Up</a></p></li>
+			<li class=""><p class="sign">Baru ?<a href="<?php echo base_url('daftar'); ?>"> daftar</a></p></li>
 			<div class="clearfix"></div>
 		</ul>
 	</form>

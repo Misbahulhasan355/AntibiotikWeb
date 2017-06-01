@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2017 at 11:02 AM
+-- Generation Time: Jun 01, 2017 at 03:47 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -42,7 +42,8 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`id_akun`, `username`, `password`, `email`, `id_jenis_user`) VALUES
 (1, 'admin', '822df7b61bf476c5aa8aef388d69a615', 'admin@official.com', 1),
-(2, 'user', '6ad14ba9986e3615423dfca256d04e3f', 'user@gmail.com', 0);
+(2, 'user', '6ad14ba9986e3615423dfca256d04e3f', 'user@gmail.com', 0),
+(3, 'haf', '81dc9bdb52d04dc20036dbd8313ed055', 'haf@email.com', 0);
 
 -- --------------------------------------------------------
 
@@ -85,8 +86,9 @@ CREATE TABLE `dokterku` (
 --
 
 INSERT INTO `dokterku` (`id_dok`, `nm_dok`, `spesialis`, `telp_dok`, `almt_dok`, `gambar_dok`) VALUES
-(5, 'danki', 'jantung', '678947', 'dasijhdias565465v\"', 'Capture2.PNG'),
-(8, 'dani', 'hati', '12545858', 'jln seruni', 'Capture5.PNG');
+(5, 'danki', 'jantung', '678947', 'd', ''),
+(8, 'dani', 'hati', '12545858', 'jln seruni', 'Capture5.PNG'),
+(9, 'arif', 'gizi', '412365', 'jln irian', '');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,8 @@ CREATE TABLE `tips` (
 --
 
 INSERT INTO `tips` (`id_tips`, `judul`, `deskripsi`, `gambar`, `waktu`, `link`) VALUES
-(2, '', '', '', '2017-05-12 00:00:00', '');
+(2, '', '', '', '2017-05-12 00:00:00', ''),
+(3, '', '', '', '0000-00-00 00:00:00', '');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +199,7 @@ ALTER TABLE `tips`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_akun` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_akun` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `darurat`
 --
@@ -206,7 +209,7 @@ ALTER TABLE `darurat`
 -- AUTO_INCREMENT for table `dokterku`
 --
 ALTER TABLE `dokterku`
-  MODIFY `id_dok` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_dok` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `lemari`
 --
@@ -216,12 +219,12 @@ ALTER TABLE `lemari`
 -- AUTO_INCREMENT for table `quote`
 --
 ALTER TABLE `quote`
-  MODIFY `id_quote` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_quote` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tips`
 --
 ALTER TABLE `tips`
-  MODIFY `id_tips` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id_tips` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -19,9 +19,7 @@
       <form>
       <div style="text-align: left;">
       <div class="col-sm-8 col-sm-offset-2">
-        <button class="btn-success btn" value="update_quote">Submit</button>
-        <button class="btn-inverse btn">Cancel</button>
-        <button class="btn-inverse btn">Reset</button>
+        <button class="btn-success btn" value="update_quote">Submit</button><a href="<?php echo base_url('Admin/quote');?>"><button class="btn-inverse btn">Cancel</button></a>
       </div>
    </div>
     </form></div>
